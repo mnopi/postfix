@@ -13,17 +13,6 @@ async def $expr$ (cls):\
         ANY   ->   @dataclasses.dataclass\
 class $expr$:\
 
-.doctest_ellipsis :  # doctest: +ELLIPSIS
-        ANY   →   # doctest: +ELLIPSIS\
-
-.doctest_exception :  # doctest: +IGNORE_EXCEPTION_DETAIL
-        ANY   →   # doctest: +IGNORE_EXCEPTION_DETAIL\
-Traceback (most recent call last):
-$expr$
-
-.doctest_skip :  # doctest: +SKIP
-        ANY   →   # doctest: +SKIP\
-
 .field_default : field(default=$default$, init=None)
         ANY   →   $expr$: $type$ = field(default=$default$, init=None)
 
