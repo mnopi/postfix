@@ -1,12 +1,6 @@
 .annotate : Annotation | $expr$: $type$ =
         ANY   →   $expr$: $type$ =
 
-.annotate_default : Annotation with default | $expr$: $type$ = datafield(default=$default$, init=None)
-        ANY   →   $expr$: $type$ = datafield(default=$default$, init=None)
-
-.annotate_default_factory : Annotation with default_factory | $expr$: $type$ = datafield(default_factory=$default$)
-        ANY   →   $expr$: $type$ = datafield(default_factory=$default$)
-
 .classmethod : @classmethod \ def $expr$ (cls):
         ANY   ->       @classmethod\
 def $expr$ (cls):\
@@ -19,14 +13,22 @@ async def $expr$ (cls):\
         ANY   ->   @dataclasses.dataclass\
 class $expr$:\
 
-.bapy : bapy.
-        ANY   →   bapy.$expr$
+.doctest_ellipsis :  # doctest: +ELLIPSIS
+        ANY   →   # doctest: +ELLIPSIS\
 
-.default : datafield(default=$default$, init=None)
-        ANY   →   $expr$: $type$ = datafield(default=$default$, init=None)
+.doctest_exception :  # doctest: +IGNORE_EXCEPTION_DETAIL
+        ANY   →   # doctest: +IGNORE_EXCEPTION_DETAIL\
+Traceback (most recent call last):
+$expr$
 
-.default_factory : datafield(default_factory=$default$, init=None)
-        ANY   →   $expr$: $type$ = datafield(default_factory=$default$, init=None)
+.doctest_skip :  # doctest: +SKIP
+        ANY   →   # doctest: +SKIP\
+
+.field_default : field(default=$default$, init=None)
+        ANY   →   $expr$: $type$ = field(default=$default$, init=None)
+
+.field_factory : field(default_factory=$default$, init=None)
+        ANY   →   $expr$: $type$ = field(default_factory=$default$, init=None)
 
 .dict : dict('$expr$'=)
         ANY   →   dict('$expr$'=)
@@ -56,9 +58,6 @@ class $expr$:\
         ANY   ->   $expr$ = NamedTuple('$expr$', '$fields$')\
 $name$: $expr$ = $expr$(*$expr$._fields)
 
-.optional : Optional[$expr$]
-        ANY   →   Optional[$expr$]
-
 .property : @property \ def $expr$ (self):
         ANY   ->       @property\
 def $expr$ (self):\
@@ -84,65 +83,8 @@ async def $expr$ ():\
 .tuple : tuple($expr$)
         ANY   →   tuple($expr$)
 
+.type_ignore_name : # type: ignore[name-defined]
+        ANY   →   # type: ignore[name-defined]
+
 .union : Union[$expr$]
         ANY   →   Union[$expr$]
-
-.warning : self.log.warning(f'{$expr$=}')
-
-.aspam : self.aspam.(f'{$expr$=}')
-        ANY   →   self.aspam.(f'{$expr$=}')
-
-.adebug : self.adebug.(f'{$expr$=}')
-        ANY   →   self.adebug.(f'{$expr$=}')
-
-.averbose : self.averbose.(f'{$expr$=}')
-        ANY   →   self.averbose.(f'{$expr$=}')
-
-.ainfo : self.ainfo.(f'{$expr$=}')
-        ANY   →   self.ainfo.(f'{$expr$=}')
-
-.anotice : self.anotice.(f'{$expr$=}')
-        ANY   →   self.anotice.(f'{$expr$=}')
-
-.awarning : self.awarning.(f'{$expr$=}')
-        ANY   →   self.awarning.(f'{$expr$=}')
-
-.asuccess : self.asuccess.(f'{$expr$=}')
-        ANY   →   self.asuccess.(f'{$expr$=}')
-
-.aerror : self.aerror.(f'{$expr$=}')
-        ANY   →   self.aerror.(f'{$expr$=}')
-
-.acritical : self.acritical.(f'{$expr$=}')
-        ANY   →   self.acritical.(f'{$expr$=}')
-
-.aexception : self.aexception.(f'{$expr$=}')
-        ANY   →   self.aexception.(f'{$expr$=}')
-
-.spam : self.spam.(f'{$expr$=}')
-        ANY   →   self.spam.(f'{$expr$=}')
-
-.debug : self.debug.(f'{$expr$=}')
-        ANY   →   self.debug.(f'{$expr$=}')
-
-.verbose : self.verbose.(f'{$expr$=}')
-        ANY   →   self.verbose.(f'{$expr$=}')
-
-.info : self.info.(f'{$expr$=}')
-        ANY   →   self.info.(f'{$expr$=}')
-
-.notice : self.notice.(f'{$expr$=}')
-        ANY   →   self.notice.(f'{$expr$=}')
-
-.success : self.success.(f'{$expr$=}')
-        ANY   →   self.success.(f'{$expr$=}')
-
-.error : self.error.(f'{$expr$=}')
-        ANY   →   self.error.(f'{$expr$=}')
-
-.critical : self.critical.(f'{$expr$=}')
-        ANY   →   self.critical.(f'{$expr$=}')
-
-.exception : self.exception.(f'{$expr$=}')
-        ANY   →   self.exception.(f'{$expr$=}')
-
