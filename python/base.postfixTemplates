@@ -72,8 +72,5 @@ async def $expr$ ():\
 .tuple : tuple($expr$)
         ANY   →   tuple($expr$)
 
-.type_ignore_name : # type: ignore[name-defined]
-        ANY   →   # type: ignore[name-defined]
-
 .union : Union[$expr$]
         ANY   →   Union[$expr$]
