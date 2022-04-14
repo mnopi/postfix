@@ -47,6 +47,9 @@ class $expr$:\
         ANY   ->   $expr$ = NamedTuple('$expr$', '$fields$')\
 $name$: $expr$ = $expr$(*$expr$._fields)
 
+.optional : Optional[$expr$]
+        ANY   →   Optional[$expr$]
+
 .property : @property \ def $expr$ (self):
         ANY   ->       @property\
 def $expr$ (self):\
